@@ -6,6 +6,11 @@ def return_unique_list(my_list):
 
 def return_list_of_prime_numbers(start, end):
     prime_list = []
+    try:
+        start = int(start)
+        end = int(end)
+    except ValueError:
+        return 'Введенные значения должны быть числами и не содержать букв'
     if end < start:
         return 'Конечное значение не может быть больше начального'
     for i in range(start, end+1):
@@ -17,13 +22,6 @@ def return_list_of_prime_numbers(start, end):
     return prime_list
 
 
-def sorted_list_by_string(my_list):
-    my_list = sorted(my_list, key=lambda x: len(x), reverse=True)
+def sorted_list_by_string(my_list, reverse):
+    my_list = sorted(my_list, key=lambda x: len(x), reverse=reverse)
     return my_list
-
-
-
-
-# d = ['1', '32434ww', '233', '2222', '45345435656456', '4432asd', '36546awd', '23', '333', '666']
-# f = sorted_list_by_string(d)
-# print(f)
